@@ -1,0 +1,31 @@
+---
+description: Границы среды контента, визуальный пайплайн и трассировка
+globs: 03-content/**
+alwaysApply: false
+---
+
+# Среда Content
+
+- Работай только в `03-content/`.
+- Единственный вход — `01-research/outputs/research-digest.md`.
+- Наружу отдавай `outputs/content-package.md`.
+- Контент описывается смыслом и ролью, не компонентом DS.
+
+## Figma
+
+- **Weave** (визуальные ассеты) — да, скилл `content/figma-weave` + `infra/figma-mcp`.
+- UI-компоненты, экраны, DS — нет (среды 2 и 4).
+
+## Визуал
+
+Пайплайн: бриф + JSON (`visual-prep`) → генерация (`visual-generate`) → [Weave] → content-package.
+Канон: `_shared/content/VISUAL-PIPELINE.md`.
+
+## Трассировка
+
+Каждый значимый текст и визуальный бриф ссылается на инсайт из дайджеста.
+Нужного вывода нет — контракт к среде 1.
+
+## Ключи
+
+Тексты: `onboarding.title`. Визуал: `onboarding.hero` — те же правила стабильности для среды 4.

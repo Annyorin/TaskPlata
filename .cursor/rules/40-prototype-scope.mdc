@@ -1,0 +1,36 @@
+---
+description: Границы среды прототипирования и правило свежести зеркала дизайн-системы
+globs: 04-prototype/**
+alwaysApply: false
+---
+
+# Среда Prototype
+
+- Работай только в `04-prototype/`.
+- Входы: `02-design-system/outputs/ds-manifest.md` и `03-content/outputs/content-package.md`
+  (hi-fi); pre-DS — `01-research/outputs/prd.md`.
+- Дизайн-систему не меняй. Нужен новый или изменённый компонент — контракт к среде 2
+  в `_shared/contracts/`, сборка ставится на паузу до ответа.
+
+## Свежесть зеркала
+
+Перед **hi-fi** сборкой сверь `mirror/ds-mirror.md` с манифестом среды 2.
+Разошлись — обнови зеркало, потом собирай. Сборка hi-fi на устаревшем зеркале запрещена.
+
+**Pre-DS** (FigJam, сценарии, low-fi без DS): достаточно PRD из Research; зеркало
+не обязательно. Канон: `_shared/structure/PRE-DS-PIPELINE.md`.
+
+## Сборка
+
+Перед первым обращением к Figma загрузи `infra/subskills/figma-mcp`. Скиллы этапов —
+в группах `structure`, `build` и `quality`.
+
+Hi-fi: `search_design_system` для поиска компонентов, затем `use_figma`. Ни один
+элемент не создаётся вручную, если в зеркале есть подходящий компонент.
+Low-fi pre-DS — серые фреймы без библиотеки DS.
+
+После создания или правки экранов — `get_screenshot` с `enableBase64Response: true`
+и показ кадров в чате (см. `25-figma-screenshots-in-chat.mdc`, инвариант §5b).
+
+Результат каждой сборки — строка в `screens/SCREEN-MAP.md` (экран, node-id, версия
+зеркала или `pre-ds`) и строка в `outputs/build-log.md`.

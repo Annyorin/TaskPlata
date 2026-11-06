@@ -1,22 +1,11 @@
 # TaskPlata
 
-Пустой каркас на базе структуры MyPortfolio (Vite, React, TypeScript, API на Hono). Экраны, компоненты, токены и данные не перенесены.
+Метасреда как в MyPortfolio: те же роли, правила маршрутизации и скиллы. Исследование, тексты, экраны, компоненты и дизайн-система прошлого проекта не перенесены. Каталоги сред пустые, шаблоны лежат в `_shared/templates/`.
 
-```
-src/screens   экраны
-src/data      данные клиента
-src/lib       утилиты
-src/styles    базовые стили
-components    UI-компоненты
-tokens        токены
-stories       истории компонентов
-server        API
-server/data   локальные данные (не коммитятся)
-```
+Код запускается из `05-code/`:
 
 ```bash
+cd 05-code
 npm install
 npm run dev
-npm run server
-npm run dev:all
 ```

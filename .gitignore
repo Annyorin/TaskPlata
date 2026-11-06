@@ -1,8 +1,33 @@
-node_modules
-dist
-storybook-static
-*.local
+# OS
 .DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+*.swp
+*~
+
+# Secrets
 .env
-server/data/*
-!server/data/.gitkeep
+.env.*
+!.env.example
+!**/.env.example
+*.pem
+credentials.json
+
+# Dependencies & build (when code env grows)
+node_modules/
+dist/
+/build/
+.storybook-static/
+# Skills group «build» must not be ignored:
+!.cursor/skills/build/
+
+# Logs & temp
+*.log
+tmp/
+temp/
+
+# Optional: large local archives (uncomment if _archive grows too big)
+# _archive/
