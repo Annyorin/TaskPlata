@@ -1,0 +1,127 @@
+[
+  {
+    "file": "ic-28-colored-send.svg",
+    "name": "ic_28/colored/send",
+    "id": "2278:12323"
+  },
+  {
+    "file": "ic-28-colored-topup.svg",
+    "name": "ic_28/colored/topup",
+    "id": "2278:12322"
+  },
+  {
+    "file": "line-stroked-state-percent.svg",
+    "name": "Line=stroked, State=percent",
+    "id": "2278:12320"
+  },
+  {
+    "file": "line-stroked-state-child.svg",
+    "name": "Line=stroked, State=child",
+    "id": "2278:12319"
+  },
+  {
+    "file": "line-stroked-state-supermarkets.svg",
+    "name": "Line=stroked, State=supermarkets",
+    "id": "2278:12318"
+  },
+  {
+    "file": "line-stroked-state-sport-goods.svg",
+    "name": "Line=stroked, State=sport_goods",
+    "id": "2278:12317"
+  },
+  {
+    "file": "homescreen-stroke.svg",
+    "name": "homescreen-stroke",
+    "id": "2278:12022"
+  },
+  {
+    "file": "homescreen-stroke-2.svg",
+    "name": "homescreen-stroke",
+    "id": "2278:12023"
+  },
+  {
+    "file": "transfer-stroke.svg",
+    "name": "transfer-stroke",
+    "id": "2278:12025"
+  },
+  {
+    "file": "transfer-stroke-2.svg",
+    "name": "transfer-stroke",
+    "id": "2278:12026"
+  },
+  {
+    "file": "invest-stroke.svg",
+    "name": "invest-stroke",
+    "id": "2278:12027"
+  },
+  {
+    "file": "invest-stroke-2.svg",
+    "name": "invest-stroke",
+    "id": "2278:12028"
+  },
+  {
+    "file": "chat-stroke.svg",
+    "name": "chat-stroke",
+    "id": "2278:12029"
+  },
+  {
+    "file": "chat-stroke-2.svg",
+    "name": "chat-stroke",
+    "id": "2278:12030"
+  },
+  {
+    "file": "ic-stroked-plus-small.svg",
+    "name": "ic/stroked/plus-small",
+    "id": "2278:12032"
+  },
+  {
+    "file": "gas.svg",
+    "name": "gas",
+    "id": "2278:12403"
+  },
+  {
+    "file": "water.svg",
+    "name": "water",
+    "id": "2278:12400"
+  },
+  {
+    "file": "electricity-cfe.svg",
+    "name": "electricity_cfe",
+    "id": "2278:12397"
+  },
+  {
+    "file": "avatar-text.svg",
+    "name": "Avatar+Text",
+    "id": "2278:12365"
+  },
+  {
+    "file": "avatar-text-2.svg",
+    "name": "Avatar+Text",
+    "id": "2278:12472"
+  },
+  {
+    "file": "ic-24-mobile.svg",
+    "name": "ic_24/mobile",
+    "id": "2278:12338"
+  },
+  {
+    "file": "supermarkets.svg",
+    "name": "supermarkets",
+    "id": "2278:12463"
+  },
+  {
+    "file": "toll.svg",
+    "name": "toll",
+    "id": "2278:12436"
+  },
+  {
+    "file": "monitor.svg",
+    "name": "monitor",
+    "id": "2278:12433"
+  },
+  {
+    "file": "internet.svg",
+    "name": "internet",
+    "id": "2278:12418"
+  }
+]

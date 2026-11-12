@@ -35,6 +35,10 @@ FigJam, сценарии и low-fi **не делаются внутри сред
 | Задача | Подскилл |
 |--------|----------|
 | разобрать визуальный стиль по референсу в `STYLE_GUIDE` | `style-decompose` |
+| поиск экранов в Mobbin и разбор паттернов | `mobbin-skill` |
+| скриншоты Mobbin → бриф и токены в коде | `mobbin-research` |
+| скриншоты → цвета, текст, отступы, радиусы | `screenshot-to-design-system` |
+| скриншоты или кадр Figma → SKILL.md и tokens.css | `design-skill-generator` |
 | DS **нет**, есть бандл Claude Design — собрать её в новом файле Figma | `handoff-to-figma` |
 | DS **уже есть** — разово проиндексировать в папку `ds/` | `figma-ds-link` |
 | связать DS с кодовой базой надолго: токены, Code Connect, дрифт | `design-system-sync` |

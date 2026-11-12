@@ -1,6 +1,6 @@
 ---
 type: registry
-updated: 2026-09-02
+updated: 2026-11-06
 ---
 
 # Реестр сред и маршрутизация
@@ -12,7 +12,7 @@ updated: 2026-09-02
 
 | Среда | Триггеры в запросе | Каталог |
 |-------|--------------------|---------|
-| Research | конкуренты, SWOT, бенчмарк, бриф, интервью, JTBD, прото-персона, эвристики Нильсена, MoSCoW, buildin, deep research, Antigravity, аудитория, гипотеза, рынок, PRD, исследование | `01-research/` |
+| Research | конкуренты, SWOT, бенчмарк, бриф, интервью, JTBD, прото-персона, эвристики Нильсена, MoSCoW, buildin, deep research, Antigravity, аудитория, гипотеза, рынок, PRD, исследование, ТРИЗ, противоречие, ИКР | `01-research/` |
 | Design System | Figma, MCP, токены, foundations, компонент, вариант, библиотека, стиль, синк, дизайн-система | `02-design-system/` |
 | Content | текст, копирайт, tone of voice, изображение, иллюстрация, промпт, Midjourney, Krea, Flux, Weave, Nano Banana, GPT Image, визуальный ассет, нейминг, микрокопи | `03-content/` |
 | Prototype | экран, флоу, прототип, кликабельный, навигация, сборка макета, FigJam, sitemap, user flow, сценарии, low-fi, вайрфрейм, pre-DS | `04-prototype/` |
@@ -42,7 +42,7 @@ Content → Research. Обоснование: чем строже изоляци
 
 | Среда | Группы |
 |-------|--------|
-| Research | `discovery` |
+| Research | `discovery`, `triz` |
 | Design System | `ds` |
 | Content | `content` |
 | Prototype | `structure`, `build`, `quality` |

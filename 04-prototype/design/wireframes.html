@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plata — снятие по QR — вайрфреймы</title>
+<link rel="stylesheet" href="board.css">
+</head>
+<body>
+
+<h1>Plata — снятие по QR — вайрфреймы</h1>
+<p class="sub">Каркасы заявки на наличные, поиска банкомата и живого QR у стойки. Паттерны: хаб-карточка как у Plata Home, визард суммы как у банковского 3-step, тёмный QR как у кассового скан-экрана. Это структура, не визуальный стиль.</p>
+
+<div class="princ">
+  <span>QR снятия только у банкомата</span>
+  <span>Цена в песо до любого Face ID</span>
+  <span>Нет тупика: всегда другой банкомат или счёт</span>
+  <span>Во время выдачи нельзя уйти на Главную</span>
+</div>
+
+<div class="legend">
+  <div><span class="dot" style="background:var(--f1)">1</span> Дома: создать заявку</div>
+  <div><span class="dot" style="background:var(--f2)">2</span> Поиск банкомата</div>
+  <div><span class="dot" style="background:var(--f3)">3</span> У банкомата</div>
+  <div><span class="dot" style="background:var(--f4)">4</span> Сбои и отмена</div>
+</div>
+
+<div class="map">
+  <span class="node"><b>Вход</b>: Главная · карта</span>
+  <span class="arr">→</span>
+  <span class="node"><b>Наличные</b></span>
+  <span class="tabs">
+    <span class="tab">Сумма</span><span class="tab">Банкомат</span><span class="tab">Заявка</span><span class="tab">QR</span>
+  </span>
+  <span class="arr">→</span>
+  <span class="node"><b>Выход</b>: чек или возврат</span>
+</div>
+
+<section>
+  <h2>1. Дома: создать заявку</h2>
+  <p>Вход с карточки на Главной, не из Платежей. Первый раз — репетиция. QR на этих экранах нет.</p>
+  <div class="row">
+
+    <div class="cell">
+      <div class="phone">
+        <div class="flows"><span class="dot" style="background:var(--f1)">1</span></div>
+        <div class="stack">
+          <div style="display:flex;gap:8px;align-items:center">
+            <div class="avatar" style="width:32px;height:32px"></div>
+            <div><div class="bar" style="width:72px"></div><div class="txt" style="width:40px;margin-top:4px"></div></div>
+          </div>
+          <div class="grid">
+            <div class="gcard"><div class="gb"><div class="gn">Кэшбек</div><div class="gm">категории</div></div></div>
+            <div class="gcard"><div class="gb"><div class="gn">Рассрочка</div><div class="gm">партнёры</div></div></div>
+          </div>
+          <div class="conn">
+            <div class="avatar" style="width:28px;height:28px"></div>
+            <div><div class="ct">Наличные</div><div class="note">Банкомат в 12 мин · открыт</div></div>
+          </div>
+          <div class="conn"><div class="bar" style="width:40%"></div></div>
+        </div>
+        <div class="tabbar">
+          <div class="on"><span class="ic"></span>Главная</div>
+          <div><span class="ic"></span>Платежи</div>
+          <div><span class="ic"></span>Инвест</div>
+          <div><span class="ic"></span>Чат</div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">W-CASH. Главная, нет заявки</div><div class="d">Карточка-ответ: ближайший открытый банкомат. Тап ведёт в хаб CASH, не в сканер.</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone">
+        <div class="flows"><span class="dot" style="background:var(--f1)">1</span></div>
+        <div class="stack">
+          <div class="bar" style="width:40%"></div>
+          <div class="note">← Наличные</div>
+          <div class="txt" style="width:90%"></div>
+          <div class="case">
+            <div class="cbody"><div><div class="ct">Chedraui Polanco</div><div class="note">12 мин · до 23:00 · хватит купюр</div></div></div>
+          </div>
+          <div class="btn ghost">Все банкоматы → MAP</div>
+          <div class="btn pr">Снять без карты → HOWTO</div>
+          <div class="btn ghost">Внести наличные</div>
+        </div>
+        <div class="tabbar">
+          <div class="on"><span class="ic"></span>Главная</div>
+          <div><span class="ic"></span>Платежи</div>
+          <div><span class="ic"></span>Инвест</div>
+          <div><span class="ic"></span>Чат</div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">CASH. Хаб без заявки</div><div class="d">Одно место для наличных. Создание скрывается, если заявка уже жива.</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone">
+        <div class="flows"><span class="dot" style="background:var(--f1)">1</span></div>
+        <div class="stack">
+          <div class="note">Как снять</div>
+          <div class="case"><div class="thumb"></div><div class="cbody"><div class="ct">Силуэт экрана банкомата</div></div></div>
+          <div class="conn"><span class="intent">1</span><div>Создай заявку дома</div></div>
+          <div class="conn"><span class="intent">2</span><div>На банкомате: Снятие по QR</div></div>
+          <div class="conn"><span class="intent">3</span><div>Подтверди лицом на телефоне</div></div>
+          <div class="btn pr">Понятно → NEW-AMT</div>
+          <div class="btn ghost">Пропустить</div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">HOWTO. Репетиция</div><div class="d">Только первый раз. Кто сканирует кого: банкомат читает телефон.</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone">
+        <div class="flows"><span class="dot" style="background:var(--f1)">1</span></div>
+        <div class="stack">
+          <div class="note">1 / 3 · Сумма и счёт</div>
+          <div class="field" style="font-size:22px;font-weight:700;color:var(--ink)">$ 1 000</div>
+          <div class="stack" style="flex-direction:row;gap:6px;flex-wrap:wrap">
+            <span class="chip">$500</span><span class="chip on">$1 000</span><span class="chip">$2 000</span>
+          </div>
+          <div class="conn"><div>Счёт · без комиссии</div><span class="chip on">выбран</span></div>
+          <div class="conn"><div>Кредит · +$116</div></div>
+          <div class="note">Получите $1 000 · спишется $1 000</div>
+          <div class="btn pr">Дальше → NEW-ATM</div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">NEW-AMT. Сумма</div><div class="d">Кратность $100. Цена в песо рядом со счётом, до подтверждения.</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone nopad">
+        <div class="flows"><span class="dot" style="background:var(--f1)">1</span></div>
+        <div style="position:relative;flex:1;overflow:hidden">
+          <div class="stack" style="padding:14px">
+            <div class="note">1 / 3</div>
+            <div class="field">$ 1 000</div>
+            <div class="conn"><div>Кредит выбран</div></div>
+          </div>
+          <div class="overlay">
+            <div class="modal">
+              <div style="font-weight:700;font-size:15px">Так дешевле</div>
+              <div class="note" style="margin:6px 0 12px">На Счёте хватает. Комиссия $0 вместо $116</div>
+              <div class="btn pr">Снять со счёта · $0</div>
+              <div class="btn ghost" style="margin-top:6px">Всё равно с кредита</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">SH-CHEAP. Шит</div><div class="d">Обе ветки: Счёт бесплатно или кредит с разложением комиссии. SC3.</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone">
+        <div class="flows"><span class="dot" style="background:var(--f1)">1</span><span class="dot" style="background:var(--f2)">2</span></div>
+        <div class="stack">
+          <div class="note">2 / 3 · Где снять</div>
+          <div class="case">
+            <div class="thumb"></div>
+            <div class="cbody"><div><div class="ct">Chedraui Polanco</div><div class="note">12 мин · открыт до 23:00 · хватит на $1 000</div></div></div>
+          </div>
+          <div class="btn ghost">Другой банкомат → MAP</div>
+          <div class="btn pr">Дальше → NEW-SUM</div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">NEW-ATM. Карточка-ответ</div><div class="d">Не голая карта. Избранный, по пути или ближайший, где хватит купюр.</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone">
+        <div class="flows"><span class="dot" style="background:var(--f1)">1</span></div>
+        <div class="stack">
+          <div class="note">3 / 3 · Проверка</div>
+          <div class="setrow"><span>Получите</span><b>$1 000</b></div>
+          <div class="setrow"><span>Комиссия</span><b>$0</b></div>
+          <div class="setrow"><span>Итого</span><b>$1 000</b></div>
+          <div class="setrow"><span>Банкомат</span><span class="note">Chedraui → NEW-ATM</span></div>
+          <div class="note">Действует до завтра. Plata никогда не просит этот код.</div>
+          <div class="btn pr">Создать заявку + Face ID</div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">NEW-SUM. Итог</div><div class="d">Три строки цены до биометрии. Строка банкомата возвращает на шаг 2.</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone nopad">
+        <div class="flows"><span class="dot" style="background:var(--f1)">1</span></div>
+        <div style="position:relative;flex:1">
+          <div class="overlay">
+            <div class="modal">
+              <div style="font-weight:700;font-size:15px">Заявка готова</div>
+              <div class="note" style="margin:6px 0 12px">1/3 Доехать до Chedraui Polanco. Live Activity запущена.</div>
+              <div class="btn pr">К заявке → REQ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">OV-CREATED. Оверлей</div><div class="d">Единственный выход — к заявке. Модальный поток закрыт.</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone">
+        <div class="flows"><span class="dot" style="background:var(--f1)">1</span><span class="dot" style="background:var(--f3)">3</span></div>
+        <div class="stack">
+          <div class="note">← Заявка</div>
+          <div class="bar" style="width:48px;height:48px;border-radius:24px;align-self:center"></div>
+          <div style="text-align:center;font-weight:700">Всё готово · 5/5</div>
+          <div class="note" style="text-align:center">Открыт · работает · хватит · баланс · срок</div>
+          <div class="case"><div class="cbody"><div class="ct">Chedraui Polanco</div><div class="note">Как доехать · сменить</div></div></div>
+          <div class="btn pr">Я у банкомата → ATM-MODE</div>
+          <div class="btn ghost">Отменить заявку</div>
+          <div class="note">QR на этом экране нет</div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">REQ. Заявка 24 ч</div><div class="d">Одна сущность. Пуш и Главная ведут сюда. Код появится только по кнопке.</div></div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>2. Поиск банкомата</h2>
+  <p>Из хаба без заявки или смена пункта в живой. Банкомат в заявке — план, не привязка.</p>
+  <div class="row">
+
+    <div class="cell">
+      <div class="phone">
+        <div class="flows"><span class="dot" style="background:var(--f2)">2</span></div>
+        <div class="stack">
+          <div class="note">Банкоматы Plata</div>
+          <div class="field">Поиск по району</div>
+          <div class="stack" style="flex-direction:row;gap:6px;flex-wrap:wrap">
+            <span class="chip on">Открыт</span><span class="chip">24 ч</span><span class="chip">Хватит</span><span class="chip">QR</span>
+          </div>
+          <div class="case"><div class="thumb"></div></div>
+          <div class="conn"><div><div class="ct">Chedraui Polanco</div><div class="note">12 мин · открыт</div></div><span class="chip on">пин</span></div>
+          <div class="conn"><div><div class="ct">Vía 515</div><div class="note">9 мин · 24 ч</div></div></div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">MAP. Карта и список</div><div class="d">Пин всегда ведёт в карточку с действием. Фильтры отвечают на «можно ехать».</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone">
+        <div class="flows"><span class="dot" style="background:var(--f2)">2</span></div>
+        <div class="stack">
+          <div class="note">Банкоматы Plata</div>
+          <div class="center">
+            <div class="bar" style="width:48px;height:48px;border-radius:8px"></div>
+            <div>Нет геолокации</div>
+            <div class="note">Список по районам. Карта не пустой тупик.</div>
+            <div class="btn pr">Включить геолокацию</div>
+            <div class="conn"><div>Polanco</div></div>
+            <div class="conn"><div>Roma Norte</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">MAP-GEO. Нет локации</div><div class="d">Пустое состояние: районы + включить гео. A9.</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone">
+        <div class="flows"><span class="dot" style="background:var(--f2)">2</span></div>
+        <div class="stack">
+          <div class="note">← Карточка банкомата</div>
+          <div class="case"><div class="thumb"></div><div class="cbody"><div class="ct">Фото фасада · 1 этаж у Starbucks</div></div></div>
+          <div class="setrow"><span>Часы</span><span>до 23:00</span></div>
+          <div class="setrow"><span>Купюр на сумму</span><span>хватит</span></div>
+          <div class="setrow"><span>Последнее снятие</span><span>4 мин назад</span></div>
+          <div class="btn pr">Снять здесь → NEW-AMT</div>
+          <div class="btn ghost">Как доехать</div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">ATM-DET. Карточка</div><div class="d">Ориентир, чтобы найти с первого взгляда. Всегда есть «Снять здесь».</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone nopad">
+        <div class="flows"><span class="dot" style="background:var(--f2)">2</span><span class="dot" style="background:var(--f4)">4</span></div>
+        <div style="position:relative;flex:1">
+          <div class="overlay">
+            <div class="modal">
+              <div style="font-weight:700;font-size:15px">Банкомат недоступен</div>
+              <div class="note" style="margin:6px 0 12px">Oceanía не работает. Vía 515 — 9 мин, открыт, хватит купюр.</div>
+              <div class="btn pr">Ехать на Vía 515</div>
+              <div class="btn ghost" style="margin-top:6px">Другие → MAP</div>
+              <div class="btn ghost" style="margin-top:6px">Оставить</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">SH-REDIRECT. Пункт сломался</div><div class="d">Готовая альтернатива. Заявку не пересоздаём. SC6.</div></div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>3. У банкомата</h2>
+  <p>Одна модель: банкомат сканирует телефон, Face ID на телефоне, купюры. Таббар скрыт.</p>
+  <div class="row">
+
+    <div class="cell">
+      <div class="phone nopad">
+        <div class="flows"><span class="dot" style="background:var(--f3)">3</span></div>
+        <div style="position:relative;flex:1;background:var(--block2)">
+          <div class="center" style="padding:18px">
+            <div class="case" style="width:100%"><div class="thumb"></div><div class="cbody"><div class="ct">Силуэт: Снятие по QR</div></div></div>
+            <div style="font-weight:700">На банкомате нажми Снятие по QR</div>
+            <div class="note">Потом поднеси телефон к сканеру</div>
+            <div class="btn ghost">Уже нажал</div>
+            <div class="btn ghost">Выйти → REQ, QR гаснет</div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">ATM-HINT. Подсказка</div><div class="d">Пока скан не пришёл, силуэт остаётся. Не код на этом шаге.</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone nopad">
+        <div class="flows"><span class="dot" style="background:var(--f3)">3</span></div>
+        <div style="position:relative;flex:1;background:var(--ink);color:#fff">
+          <div class="center" style="padding:18px">
+            <div class="note" style="color:#fff">Живой QR · 30 с</div>
+            <div style="width:160px;height:160px;border:2px solid #fff;border-radius:12px"></div>
+            <div class="note" style="color:#fff">Поднеси на 10 см. Сохранить нельзя.</div>
+            <div class="btn ghost">Выйти</div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">ATM-QR. Живой код</div><div class="d">Узор каждые 30 с. Скриншот выпускает новый. Нет Поделиться.</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone nopad">
+        <div class="flows"><span class="dot" style="background:var(--f3)">3</span></div>
+        <div style="position:relative;flex:1">
+          <div class="overlay">
+            <div class="modal">
+              <div style="font-weight:700;font-size:15px">Подтвердите снятие</div>
+              <div style="font-size:22px;font-weight:700;margin:8px 0">$1 000</div>
+              <div class="setrow"><span>Комиссия</span><span>$0</span></div>
+              <div class="setrow"><span>Банкомат</span><span>Chedraui Polanco</span></div>
+              <div class="btn pr" style="margin-top:10px">Подтвердить лицом</div>
+              <div class="btn ghost" style="margin-top:6px">Это не я</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">SH-CONFIRM. После скана</div><div class="d">Сумма, комиссия, какой банкомат. Деньги выдаёт только владелец.</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone nopad">
+        <div class="flows"><span class="dot" style="background:var(--f3)">3</span></div>
+        <div class="center" style="background:var(--block)">
+          <div class="bar" style="width:56px;height:56px;border-radius:28px"></div>
+          <div style="font-weight:700;font-size:16px">Заберите деньги</div>
+          <div class="note">Синхронно с банкоматом. Закрыть и На главную нет.</div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">DISPENSE. Выдача</div><div class="d">Пока купюры едут, ухода из экрана нет. Свёрнутое приложение — пуш в DONE/FAIL.</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone">
+        <div class="flows"><span class="dot" style="background:var(--f3)">3</span></div>
+        <div class="stack">
+          <div class="note">Чек</div>
+          <div style="font-size:22px;font-weight:700">$1 000</div>
+          <div class="note">Получено</div>
+          <div class="setrow"><span>Комиссия</span><span>$0</span></div>
+          <div class="setrow"><span>Списано</span><span>$1 000</span></div>
+          <div class="setrow"><span>Банкомат</span><span>Chedraui</span></div>
+          <div class="btn pr">Готово → Главная</div>
+          <div class="btn ghost">Сообщить о проблеме</div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">DONE. Чек правды</div><div class="d">Обещали и списали рядом. Live Activity гаснет.</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone">
+        <div class="flows"><span class="dot" style="background:var(--f3)">3</span></div>
+        <div class="stack">
+          <div class="note">Экран банкомата</div>
+          <div class="center">
+            <div class="btn pr">Снятие по QR</div>
+            <div class="btn ghost">Карта</div>
+            <div class="note">Не карта / не телефон / не договор</div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">ATM-A. Меню банкомата</div><div class="d">Физический экран. Клиент выбирает QR, затем подносит телефон.</div></div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>4. Сбои, пустые, отмена</h2>
+  <p>Каждое «не получится» приходит с альтернативой. Экран «напишите в поддержку» как единственный выход запрещён.</p>
+  <div class="row">
+
+    <div class="cell">
+      <div class="phone">
+        <div class="flows"><span class="dot" style="background:var(--f1)">1</span><span class="dot" style="background:var(--f4)">4</span></div>
+        <div class="stack">
+          <div class="note">1 / 3 · Сумма</div>
+          <div class="field" style="color:var(--ink);font-weight:700">$ 1 000</div>
+          <div class="note danger">Не хватает $300</div>
+          <div class="btn ghost">Счёт накоплений</div>
+          <div class="btn ghost">Уменьшить до $700</div>
+          <div class="btn ghost">Пополнить</div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">NEW-AMT-ERR. Мало денег</div><div class="d">Инлайн ошибка плюс три выхода. Не блокировка кнопки без объяснения.</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone nopad">
+        <div class="flows"><span class="dot" style="background:var(--f3)">3</span><span class="dot" style="background:var(--f4)">4</span></div>
+        <div style="position:relative;flex:1">
+          <div class="overlay">
+            <div class="modal">
+              <div style="font-weight:700;font-size:15px">Стоп. Вам звонят</div>
+              <div class="note" style="margin:6px 0 12px">Plata никогда не просит этот код по телефону. Положите трубку.</div>
+              <div class="btn pr">Повесил, продолжить</div>
+              <div class="btn ghost" style="margin-top:6px">Отменить заявку</div>
+              <div class="btn ghost" style="margin-top:6px">Написать в Plata</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">OV-CALL. Стоп-звонок</div><div class="d">QR скрыт, пока висит звонок. Продолжить через 10 с, если не повесил. SC5.</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone">
+        <div class="flows"><span class="dot" style="background:var(--f4)">4</span></div>
+        <div class="stack">
+          <div class="note">Сбой выдачи</div>
+          <div class="danger">Деньги не выданы. Возврат уже идёт.</div>
+          <div class="conn"><span class="intent">1</span><div>Нашли операцию</div></div>
+          <div class="conn"><span class="intent">2</span><div>Возвращаем</div></div>
+          <div class="conn"><span class="intent">3</span><div>Вернули — срок на экране</div></div>
+          <div class="btn pr">Снять в другом → MAP</div>
+          <div class="btn ghost">Написать в Plata</div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">FAIL. Автовозврат</div><div class="d">Клиенту не нужно ничего доказывать. Другой банкомат — не тупик в чат. SC7.</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone nopad">
+        <div class="flows"><span class="dot" style="background:var(--f4)">4</span></div>
+        <div style="position:relative;flex:1">
+          <div class="overlay">
+            <div class="modal">
+              <div style="font-weight:700;font-size:15px">Снятие заблокировано</div>
+              <div class="note" style="margin:6px 0 12px">Вы нажали «это не я». Операция на банкомате отменена.</div>
+              <div class="btn pr">Запретить снятие без карты</div>
+              <div class="btn ghost" style="margin-top:6px">Написать в Plata</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">ESC-ALERT. Это не я</div><div class="d">После скана, если операция чужая. SC12.</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone nopad">
+        <div class="flows"><span class="dot" style="background:var(--f1)">1</span><span class="dot" style="background:var(--f4)">4</span></div>
+        <div style="position:relative;flex:1">
+          <div class="overlay">
+            <div class="modal">
+              <div style="font-weight:700;font-size:15px">Отменить заявку?</div>
+              <div class="note" style="margin:6px 0 12px">Деньги не списывались. Live Activity погаснет.</div>
+              <div class="btn pr">Отменить → CASH</div>
+              <div class="btn ghost" style="margin-top:6px">Вернуться</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">SH-CANCEL. Отмена</div><div class="d">Явный итог. Смена суммы = отмена + новая заявка. SC10.</div></div>
+    </div>
+
+    <div class="cell">
+      <div class="phone">
+        <div class="flows"><span class="dot" style="background:var(--f4)">4</span></div>
+        <div class="stack">
+          <div class="note">← Заявка</div>
+          <div style="text-align:center;font-weight:700">Истекла</div>
+          <div class="note" style="text-align:center">24 часа прошли. Деньги на счёте.</div>
+          <div class="btn pr">Создать заново</div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">REQ-EXP. Истекла</div><div class="d">Предзаполнение тех же суммы и банкомата. SC8.</div></div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Логика, которую не видно на каркасах</h2>
+  <p>Правила, которые держат структуру вместе. Без них экраны соберутся, а продукт разъедется.</p>
+  <div class="stack" style="max-width:880px;gap:10px">
+    <div class="conn">Одна активная заявка. Пока жива — создание скрыто, все входы ведут в REQ.</div>
+    <div class="conn">QR снятия нет на заявке, в пуше, Live Activity, виджете. Нет Сохранить и Поделиться.</div>
+    <div class="conn">Деньги не блокируются при создании. Списание в момент перехода «Выдача».</div>
+    <div class="conn">Банкомат в заявке можно сменить без новой заявки.</div>
+    <div class="conn">Нет сети у банкомата: Face ID до показа QR, код строится на телефоне.</div>
+    <div class="conn">Платежи, сканер на Главной, код из пуша в банкомат — не рисуются.</div>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,7 +1,7 @@
 ---
 type: reference
 status: active
-updated: 2026-09-02
+updated: 2026-11-06
 ---
 
 # Справочник скиллов метасреды
@@ -13,7 +13,7 @@ updated: 2026-09-02
 > **Поддержка.** При добавлении, переименовании или удалении скилла обновляй
 > этот файл в той же задаче вместе с роутером группы и `_shared/skills-map.md`.
 
-**Всего:** 35 скиллов в 7 группах.
+**Всего:** 73 скилла в 8 группах.
 
 ---
 
@@ -35,6 +35,7 @@ updated: 2026-09-02
 | Сборка | `build` | `.cursor/skills/build/SKILL.md` |
 | Качество | `quality` | `.cursor/skills/quality/SKILL.md` |
 | Инфраструктура | `infra` | `.cursor/skills/infra/SKILL.md` |
+| ТРИЗ | `triz` | `.cursor/skills/triz/SKILL.md` |
 
 ---
 
@@ -145,6 +146,7 @@ updated: 2026-09-02
 | `ia-first` | Текстовый граф навигации | «Куда ведёт кнопка» |
 | `wireframe-board` | HTML-доска серых каркасов | Быстрый обзор всех экранов |
 | `wireframe-figma` | Low-fi в Figma MCP + inventory | Перед созданием DS с нуля |
+| `figma-user-flow-planner` | Карта экранов, матрица состояний, развилки; чеклист полноты (MIT, pm-claude-skills) | «Какие экраны нужны», проверка готовой блок-схемы на пропуски |
 
 **Pre-DS порядок:** `figjam-ia` → `scenario-map` → `wireframe-figma` → задача в `ds`.  
 **Канон:** [`_shared/structure/PRE-DS-PIPELINE.md`](_shared/structure/PRE-DS-PIPELINE.md)
@@ -162,6 +164,10 @@ updated: 2026-09-02
 | Скилл | Зачем | Когда вызывать |
 |-------|-------|----------------|
 | `style-decompose` | Разбор стиля с Dribbble в `STYLE_GUIDE` | «Разбери стиль референса» |
+| `mobbin-skill` | Поиск экранов и флоу в Mobbin | «Найди в Mobbin» |
+| `mobbin-research` | Скриншоты Mobbin в бриф и токены | «Собери токены с Mobbin» |
+| `screenshot-to-design-system` | Цвета, текст, отступы и радиусы со скриншотов | «Собери систему со скриншотов» |
+| `design-skill-generator` | Скриншоты или кадр Figma в SKILL.md и tokens.css | «Собери скилл дизайн-системы» |
 | `handoff-to-figma` | Создать DS в Figma с нуля из бандла CSS+JSX | DS ещё нет, pre-DS готов / skip |
 | `figma-ds-link` | Проиндексировать существующую DS из Figma | DS в Figma уже есть |
 | `design-system-sync` | Долгая связка Figma ↔ код, токены, дрифт | Постоянная синхронизация |
@@ -198,10 +204,16 @@ updated: 2026-09-02
 | Скилл | Зачем | Когда вызывать |
 |-------|-------|----------------|
 | `design-review` | Соответствие DS, a11y, состояния | «Отревьюй макет» |
+| `figma-code-parity` | Компонент в коде против узла Figma, до статуса «готово» | Каждый раз после правки компонента в `05-code` |
 | `design-anti-slop` | Убрать ИИ-шаблоны | «Выглядит как нейронка» |
 | `design-decompose` | Довести до эталона | «Похоже, но дёшево» |
 | `emil-design-eng` | Анимации и микровзаимодействия | «Переходы резкие» |
 | `user-test-loop` | Дашборд находок → правки/контракты | После preview / теста |
+| `journey-map` | Сквозные пути: развилки, тупики, точки путаницы (MIT, hci-review-skill) | «Оцени флоу», «где застрянет пользователь» |
+| `failure-path-audit` | 8 категорий сбоев: пусто, загрузка, валидация, права, сеть, недоделано, отмена, конфликты | «Минусы сценария», «чего не хватает в ветках» |
+| `state-model` | Жизненный цикл сущностей, недопустимые переходы, видимость состояния | Заявка/платёж/QR со статусами |
+
+**Оценка блок-схемы user flow:** `journey-map` → `failure-path-audit` → `state-model`, полнота — `structure/figma-user-flow-planner`.
 
 **Четыре визуальных вопроса** — как раньше; пятый — **что сказали тестеры**.
 
@@ -229,6 +241,12 @@ updated: 2026-09-02
 
 ---
 
+## ТРИЗ
+
+Группа `triz`, роутер `.cursor/skills/triz/SKILL.md`. 34 процедуры для противоречий и идеального результата. Артефакты кладутся в `01-research/`. Полный список — в роутере. Для задачи «улучшая одно, портим другое» начинай с `contradiction-solver` и `triz-engine-ifr`.
+
+---
+
 ## Похожие скиллы — не путать
 
 | Задача | Бери | Не путай с |
@@ -243,6 +261,7 @@ updated: 2026-09-02
 | Экраны мёртвые / wire | `app-live` | `emil-design-eng` — только моушен |
 | GitHub handoff / деплой | `ship` | `git-github-check` — только health |
 | Находки юзер-теста | `user-test-loop` | `design-review` — без тестеров |
+| Оценить блок-схему флоу | `journey-map` + `failure-path-audit` | `design-review` — экраны против DS |
 | Собрать требования | `recursive-briefing` | `ia-first` — навигация из готового флоу |
 
 ---

@@ -1,0 +1,95 @@
+<!doctype html>
+<!--
+type: project-timeline
+status: draft
+updated: 2026-11-12
+-->
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Плата — путь проекта</title>
+<style>
+  :root {
+    color-scheme: light;
+    font: 16px/1.55 system-ui, sans-serif;
+    color: #18233a;
+    background: #f5f7fa;
+  }
+  body { max-width: 72rem; margin: 0 auto; padding: clamp(1rem, 4vw, 3rem); }
+  h1 { margin: 0; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; }
+  header p { margin: 0.75rem 0 1.5rem; color: #4d5c71; }
+  .timeline { overflow-x: auto; border: 1px solid #d8e0eb; border-radius: 1rem; background: white; }
+  table { border-collapse: collapse; width: 100%; min-width: 44rem; table-layout: fixed; }
+  th, td { padding: 0.75rem; text-align: left; vertical-align: top; border-bottom: 1px solid #d8e0eb; }
+  thead th { background: #ecf1f7; }
+  th:first-child { width: 22%; }
+  td { border-left: 1px solid #e2e8f0; }
+  tbody tr:last-child > * { border-bottom: 0; }
+  .milestone {
+    display: block;
+    padding: 0.6rem 0.75rem;
+    border-radius: 0.5rem;
+    background: #e4efff;
+    color: #183d79;
+    font-weight: 600;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.16em;
+  }
+  .milestone + .milestone { margin-top: 0.5rem; }
+  .milestone:hover { background: #d1e4ff; }
+  :focus-visible { outline: 3px solid #205bb1; outline-offset: 2px; }
+  footer { margin-top: 1.25rem; color: #4d5c71; }
+  footer a { color: #183d79; }
+</style>
+</head>
+<body>
+<header>
+  <h1 id="timeline-title">Плата — путь проекта</h1>
+  <p>9–11 ноября 2026. Нажми на веху, чтобы открыть макет или исходный документ.</p>
+</header>
+<main>
+  <div class="timeline" role="region" aria-labelledby="timeline-title" tabindex="0">
+    <table aria-label="Вехи проекта по датам">
+      <thead>
+        <tr>
+          <th scope="col">Направление</th>
+          <th scope="col"><time datetime="2026-11-09">9 ноября</time></th>
+          <th scope="col"><time datetime="2026-11-10">10 ноября</time></th>
+          <th scope="col"><time datetime="2026-11-11">11 ноября</time></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Снятие по QR</th>
+          <td><a class="milestone" href="https://www.figma.com/design/Jkb4I2dNf7WPJ2Bi2VngvO/?node-id=2217-1131">Low-fi от главной до выдачи</a></td>
+          <td><a class="milestone" href="../04-prototype/outputs/build-log.md">Карта сценария, пустые состояния и сбои</a></td>
+          <td><a class="milestone" href="https://www.figma.com/design/Jkb4I2dNf7WPJ2Bi2VngvO/?node-id=2372-2183">Экраны снятия по QR</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Дизайн-система</th>
+          <td></td>
+          <td></td>
+          <td><a class="milestone" href="../02-design-system/outputs/ds-manifest.md">Манифест компонентов и foundations · 0.0.17</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Заказ карты</th>
+          <td></td>
+          <td></td>
+          <td><a class="milestone" href="https://www.figma.com/design/Jkb4I2dNf7WPJ2Bi2VngvO/?node-id=2350-1889">Экраны заказа и паттерны доставки</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Платежи</th>
+          <td></td>
+          <td></td>
+          <td><a class="milestone" href="https://www.figma.com/design/Jkb4I2dNf7WPJ2Bi2VngvO/?node-id=2360-2013">Экраны оплаты и напоминаний</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+<footer>
+  Вехи 9–10 ноября взяты из <a href="../04-prototype/outputs/build-log.md">лога сборок</a>. Вехи 11 ноября отражают состояние на дату обновления <a href="../02-design-system/outputs/ds-manifest.md">манифеста дизайн-системы</a>.
+</footer>
+</body>
+</html>

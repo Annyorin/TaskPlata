@@ -9,7 +9,7 @@ alwaysApply: true
 
 | Триггеры | Среда |
 |----------|-------|
-| конкуренты, SWOT, бриф, deep research, эвристики, MoSCoW, buildin, интервью, JTBD, гипотеза, рынок | `01-research/` |
+| конкуренты, SWOT, бриф, deep research, эвристики, MoSCoW, buildin, интервью, JTBD, гипотеза, рынок, ТРИЗ, противоречие, ИКР | `01-research/` |
 | Figma, MCP, токены, foundations, компонент, библиотека, синк, дизайн-система | `02-design-system/` |
 | текст, копирайт, tone of voice, изображение, иллюстрация, промпт, Midjourney, Krea, Weave, Flux, визуальный ассет | `03-content/` |
 | экран, флоу, прототип, навигация, сборка макета, FigJam, sitemap, сценарии, low-fi, вайрфрейм | `04-prototype/` |
@@ -21,7 +21,7 @@ Research. При неоднозначности — спроси пользов�
 ## Скиллы
 
 Процедуры — в `.cursor/skills/` группами: `discovery`, `content`, `structure`, `ds`,
-`build`, `quality`, `infra`. Триггерятся только роутеры групп; подскилл роутер читает
+`build`, `quality`, `infra`, `triz`. Триггерятся только роутеры групп; подскилл роутер читает
 как файл `<группа>/subskills/<имя>/SKILL.md`. Выбор — по `_shared/skills-map.md`.
 
 ## Ссылки Figma

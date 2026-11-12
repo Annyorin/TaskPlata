@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 971 1619" preserveAspectRatio="xMidYMid slice">
+  <style>
+    path { fill: none; stroke: #b6bdba; stroke-width: 2; stroke-linecap: round;
+      vector-effect: non-scaling-stroke; stroke-dasharray: 1; }
+    .boulevard { stroke: #83bda4; stroke-width: 3; }
+    @media (prefers-reduced-motion: no-preference) {
+      path { animation: draw-street 1.5s var(--delay) cubic-bezier(.38,.03,.25,1) infinite both; }
+    }
+    @keyframes draw-street {
+      0% { stroke-dashoffset: 1; opacity: 1; }
+      65%, 85% { stroke-dashoffset: 0; opacity: 1; }
+      100% { stroke-dashoffset: 0; opacity: 0; }
+    }
+  </style>
+    <path class="boulevard" pathLength="1" style="--delay:0ms" d="M-50 1256 L1020 676"/>
+    <path class="boulevard" pathLength="1" style="--delay:70ms" d="M-46 1315 L1020 740"/>
+    <path class="street" pathLength="1" style="--delay:100ms" d="M-30 917 L995 353"/>
+    <path class="street" pathLength="1" style="--delay:165ms" d="M-30 747 L995 185"/>
+    <path class="street" pathLength="1" style="--delay:225ms" d="M-30 557 L995 -5"/>
+    <path class="street" pathLength="1" style="--delay:290ms" d="M-30 355 L650 -20"/>
+    <path class="street" pathLength="1" style="--delay:180ms" d="M181 -45 L824 1085"/>
+    <path class="street" pathLength="1" style="--delay:245ms" d="M385 -40 L971 964"/>
+    <path class="street" pathLength="1" style="--delay:315ms" d="M703 -45 L1000 467"/>
+    <path class="street" pathLength="1" style="--delay:210ms" d="M-30 358 L560 1392"/>
+    <path class="street" pathLength="1" style="--delay:290ms" d="M-40 662 L260 1186"/>
+    <path class="street" pathLength="1" style="--delay:350ms" d="M307 1132 L604 1646"/>
+    <path class="street" pathLength="1" style="--delay:365ms" d="M432 1462 L1020 1135"/>
+    <path class="street" pathLength="1" style="--delay:420ms" d="M528 1589 L1020 1322"/>
+  </svg>

@@ -1,0 +1,14 @@
+---
+description: Сверять компонент в коде с узлом Figma перед тем, как считать правку готовой
+alwaysApply: true
+---
+
+# Сверка Figma и кода
+
+Когда создаёшь или меняешь компонент в `05-code/components/` или его историю
+в Storybook, до ответа «готово» прочитай и выполни
+`.cursor/skills/quality/subskills/figma-code-parity/SKILL.md`.
+
+Компонент без node-id и без статуса `match` или `brand-exception` в
+`05-code/outputs/parity.md` не считается готовым. Расхождение показывай
+в ответе.

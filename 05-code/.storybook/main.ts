@@ -3,6 +3,7 @@ import path from 'node:path'
 
 const config: StorybookConfig = {
   stories: ['../stories/**/*.stories.@(ts|tsx)'],
+  staticDirs: [{ from: '../../02-design-system/assets/etalon', to: '/etalon' }],
   addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],
   framework: {
     name: '@storybook/react-vite',

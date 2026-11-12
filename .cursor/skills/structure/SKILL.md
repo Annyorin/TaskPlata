@@ -1,6 +1,6 @@
 ---
 name: structure
-description: Роутер группы «структура» (5 подскиллов) — FigJam sitemap/flows, сценарии, IA, HTML wireframes, low-fi в Figma MCP. Применять на «куда что ведёт», «sitemap», «FigJam», «сценарии», «low-fi», «вайрфреймы», «pre-DS» — когда конкретный подскилл не назван.
+description: Роутер группы «структура» (6 подскиллов) — FigJam sitemap/flows, сценарии, IA, HTML wireframes, low-fi в Figma MCP, план экранов и состояний флоу. Применять на «куда что ведёт», «sitemap», «FigJam», «сценарии», «low-fi», «вайрфреймы», «pre-DS» — когда конкретный подскилл не назван.
 ---
 
 # Structure — роутер группы
@@ -16,6 +16,7 @@ description: Роутер группы «структура» (5 подскил�
 | текстовый граф навигации (IA.md) | `ia-first` |
 | доска серых каркасов HTML | `wireframe-board` |
 | low-fi в Figma через MCP + component inventory | `wireframe-figma` |
+| план экранов и состояний до дизайна; чеклист полноты флоу | `figma-user-flow-planner` |
 
 ## Pre-DS порядок (DS ещё нет)
 
@@ -37,3 +38,4 @@ figjam-ia → scenario-map → wireframe-figma → (задача в ds)
 - `wireframe-figma` vs `wireframe-board`: Figma MCP vs HTML-обзор.
 - `wireframe-figma` vs `ds/handoff-to-figma`: каркасы экранов vs библиотека Variables/компонентов.
 - Требования — `discovery`; здесь структура из готового PRD.
+- `figma-user-flow-planner` vs `scenario-map`: план экранов/состояний и чеклист полноты vs пошаговые сценарии. Оценка готового флоу — `quality/journey-map` + `failure-path-audit`.

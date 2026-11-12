@@ -1,5 +1,4 @@
 import type { Preview } from '@storybook/react'
-import '../tokens/tokens.css'
 
 const preview: Preview = {
   parameters: {
@@ -8,7 +7,7 @@ const preview: Preview = {
     backgrounds: {
       default: 'canvas',
       values: [
-        { name: 'canvas', value: '#f2f2f4' },
+        { name: 'canvas', value: '#f5f6f9' },
         { name: 'surface', value: '#ffffff' },
       ],
     },

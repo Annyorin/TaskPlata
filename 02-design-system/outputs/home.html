@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home · компоненты</title>
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+  <main class="phone" style="background-image: url('../assets/images/video-background-white.png')">
+    <header class="status">
+      <time>8:22</time>
+      <span class="status-icons" aria-hidden="true">
+        <svg viewBox="0 0 17 12"><rect x="0" y="7" width="3" height="5" rx="0.6"/><rect x="4.5" y="5" width="3" height="7" rx="0.6"/><rect x="9" y="2.5" width="3" height="9.5" rx="0.6"/><rect x="13.5" y="0" width="3" height="12" rx="0.6"/></svg>
+        <svg viewBox="0 0 16 12"><path d="M1 4.5C3.8 1.8 12.2 1.8 15 4.5" fill="none" stroke="#111" stroke-width="1.4" stroke-linecap="round"/><path d="M3.4 7C5.2 5.3 10.8 5.3 12.6 7" fill="none" stroke="#111" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="10" r="1.1"/></svg>
+        <svg viewBox="0 0 25 12"><rect x="0.5" y="0.5" width="21" height="11" rx="2.5" fill="none" stroke="#111"/><rect x="2" y="2" width="16" height="8" rx="1"/><rect x="22.5" y="4" width="1.5" height="4" rx="0.4"/></svg>
+      </span>
+    </header>
+
+    <div class="profile">
+      <div class="profile-main">
+        <img src="../assets/images/avatar-tile.png" alt="">
+        <span>
+          <strong>Santiago<img class="plus" src="../assets/icons/logo-plus.svg" alt=""></strong>
+          <em>1 месяц с Плата</em>
+        </span>
+      </div>
+      <span class="chevron-btn" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M4.5 7.5L10 13L15.5 7.5" stroke="#121416" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </div>
+
+    <div class="home-stack">
+      <div class="pair">
+        <article class="widget widget--s">
+          <span class="line">Кэшбек</span>
+          <b class="cash">$467.18</b>
+          <span class="accessories">
+            <img src="../assets/icons/line-stroked-state-percent.svg" alt="">
+            <img src="../assets/icons/line-stroked-state-child.svg" alt="">
+            <img src="../assets/icons/line-stroked-state-supermarkets.svg" alt="">
+            <img src="../assets/icons/line-stroked-state-sport-goods.svg" alt="">
+          </span>
+        </article>
+        <article class="widget widget--s">
+          <span class="line">Рассрочка</span>
+          <b>12</b>
+          <em class="hint hint--15">109 партнёры</em>
+        </article>
+      </div>
+
+      <article class="widget widget--l">
+        <span>
+          <strong class="widget-title">Переводы</strong>
+          <em class="line">$14,157 потрачено в Окт</em>
+        </span>
+        <img class="sphere" src="../assets/images/sphere.png" alt="">
+      </article>
+
+      <article class="widget widget--l widget--stack">
+        <div class="widget-row">
+          <b>$5,289.39</b>
+          <em class="hint">Pay by Nov 4</em>
+        </div>
+        <div class="widget-row">
+          <em class="line">Доступно на кредитке</em>
+          <img class="mini-card" src="../assets/images/cards-stack.png" alt="">
+        </div>
+      </article>
+
+      <article class="widget widget--l widget--stack">
+        <div class="widget-row">
+          <b>$15,104.57</b>
+          <em class="earned">$23.78 заработано</em>
+        </div>
+        <div class="widget-row">
+          <em class="line">Дебетовая карта</em>
+          <img class="mini-card" src="../assets/images/card-thumb.png" alt="">
+        </div>
+      </article>
+
+      <button class="banner" type="button">
+        <span>
+          <strong>Get $300</strong>
+          <em><span>Invite a friend · </span>2 days left</em>
+        </span>
+        <img src="../assets/images/invite.png" alt="">
+      </button>
+    </div>
+
+    <nav class="glass-tab" aria-label="Tabbar">
+      <div class="glass-tab__pill">
+        <span><i class="glyph" style="--icon: url('../assets/icons/homescreen-stroke.svg')"></i>Home</span>
+        <span class="is-on"><i class="glyph" style="--icon: url('../assets/icons/transfer-stroke.svg')"></i>Pay</span>
+        <span><i class="glyph" style="--icon: url('../assets/icons/invest-stroke.svg')"></i>Invest</span>
+        <span><b>$300</b>Invite</span>
+      </div>
+      <span class="glass-tab__chat"><i class="glyph" style="--icon: url('../assets/icons/chat-stroke.svg')"></i></span>
+    </nav>
+  </main>
+</body>
+</html>
