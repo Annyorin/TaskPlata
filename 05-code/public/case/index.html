@@ -11,7 +11,7 @@
 <style>
 :root{color-scheme:light;--ink:#16151c;--muted:#555265;--paper:#f8f7fb;--line:#dcd8e6;--lilac:#e6dfff;--purple:#4934a8;--white:#fff;--orange:#ff7146;--dark:#211839;--space:clamp(20px,5vw,76px);--radius:32px;--pill:100px;--max:1320px;--display:clamp(3.25rem,7.8vw,8.5rem);--heading:clamp(2.25rem,5.4vw,5.5rem);--gap:clamp(48px,8vw,120px)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,sans-serif}a{color:inherit}a:focus-visible,summary:focus-visible{outline:3px solid var(--purple);outline-offset:5px}.wrap{width:min(var(--max),100% - 2 * var(--space));margin-inline:auto}
-.header{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:80px}.wordmark{font-size:1.35rem;font-weight:850;letter-spacing:-.07em;text-decoration:none}.wordmark span{color:var(--purple)}nav{display:flex;gap:clamp(16px,4vw,48px);font-size:.875rem}nav a{text-decoration:none}nav a:hover,.foot a:hover{text-decoration:underline}
+.header{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:80px}nav{display:flex;gap:clamp(16px,4vw,48px);font-size:.875rem}nav a{text-decoration:none}nav a:hover,.foot a:hover{text-decoration:underline}
 .hero{position:relative;isolation:isolate;display:grid;grid-template-columns:1.18fr 1fr;align-items:center;min-height:clamp(520px,49vw,680px);overflow:hidden;padding:var(--space);border-radius:var(--radius);background:var(--lilac)}.hero-copy{z-index:1}.eyebrow{font-size:.75rem;font-weight:750;text-transform:uppercase;letter-spacing:.13em;margin:0 0 22px}.hero h1{font-size:var(--display);line-height:.94;letter-spacing:-.085em;margin:0;font-weight:760}.hero p:not(.eyebrow){font-size:clamp(1rem,1.45vw,1.25rem);max-width:34ch;color:var(--muted);margin:26px 0}.button{display:inline-flex;align-items:center;justify-content:center;gap:18px;padding:13px 22px;border-radius:var(--pill);background:var(--ink);color:var(--white);font-weight:650;text-decoration:none;transition:background .2s}.button:hover{background:var(--purple)}
 .hero-art{position:relative;display:grid;place-items:center;min-width:0;aspect-ratio:1}.orbit{position:absolute;inset:2%;border:1px solid #4934a82b;border-radius:50%;transform:rotate(-28deg) scaleY(.67)}.orbit.two{transform:rotate(43deg) scaleY(.72)}.tile{width:63%;aspect-ratio:1;display:grid;place-items:center;transform:rotate(-13deg);border-radius:23%;background:linear-gradient(145deg,#ffd4a7,var(--orange) 40%,#d74629 92%);box-shadow:inset 0 2px 3px #fff9,inset 0 -5px 9px #ac302b8a,12px 20px 0 #a83529,16px 38px 50px #51378c50}.tile svg{width:61%;height:auto;color:var(--dark)}.tag{position:absolute;background:var(--white);border-radius:var(--pill);padding:8px 13px;font-size:.72rem;font-weight:720;letter-spacing:.06em;box-shadow:0 4px 20px #2118391a}.tag.top{top:10%;right:0}.tag.bottom{bottom:11%;left:0}
 .strip{display:grid;grid-template-columns:repeat(3,1fr);margin:18px 0 0;border-bottom:1px solid var(--line);padding:18px 0 24px;gap:18px}.strip div{display:grid;gap:3px}.strip dt{font-size:.73rem;color:var(--muted)}.strip dd{margin:0;font-weight:680}
@@ -22,11 +22,36 @@
 @media(max-width:760px){.header{min-height:65px}.hero{grid-template-columns:1fr;min-height:0;gap:14px}.hero-art{width:min(100%,390px);justify-self:center}.split{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.mini{min-height:112px}.strip{gap:10px}}
 @media(max-width:380px){.header nav a:first-child{display:none}.strip{grid-template-columns:1fr}.hero h1{font-size:clamp(2.75rem,13vw,3.25rem)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
+.header-icon {
+  display: inline-grid;
+  flex: none;
+  border-radius: 10px;
+}
+.header-icon img {
+  grid-area: 1 / 1;
+  display: block;
+}
+.demo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.demo .figma-button {
+  color: var(--white);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.demo .figma-button:hover {
+  color: var(--ink);
+}
 </style>
 </head>
 <body id="top">
 <header class="header wrap">
-  <a class="wordmark" href="#top" aria-label="Plata, начало кейса">plata<span>.</span></a>
+  <a class="header-icon" href="#top" aria-label="Plata, начало кейса">
+    <img src="./plata-icon.png" width="40" height="40" alt="">
+    <img src="./plata-icon.svg" width="40" height="40" alt="">
+  </a>
   <nav aria-label="Разделы кейса"><a href="#task">Задача</a><a href="#flow">Сценарий</a><a href="#demo">Прототип ↗</a></nav>
 </header>
 <main class="wrap">
@@ -62,21 +87,27 @@
     <p class="eyebrow">02 / Основной сценарий</p><h2>От карты банкоматов до выдачи</h2>
     <ol class="steps">
       <li><div class="step-copy"><span class="num">01</span><h3>Найти банкомат</h3><p>Открыть «Банкоматы» с главной, проверить часы работы и выбрать точку с поддержкой QR.</p></div><div class="mini"><small>На карте</small><b>Банкоматы</b><small>Открыто · QR-код</small></div></li>
-      <li><div class="step-copy"><span class="num">02</span><h3>Подготовить снятие</h3><p>Выбрать счёт, указать сумму и увидеть комиссию до создания QR-кода.</p></div><div class="mini q"><small>Пример: дебетовый счёт</small><b>$500</b><small>Без комиссии</small></div></li>
-      <li><div class="step-copy"><span class="num">03</span><h3>Подтвердить у банкомата</h3><p>Показать QR сканеру, открыть уведомление и ввести четыре цифры на банкомате.</p></div><div class="mini pin"><small>Код из уведомления</small><span class="pin-digits" aria-label="Четыре цифры"><i></i><i></i><i></i><i></i></span><small>Подтверждение снятия</small></div></li>
+      <li><div class="step-copy"><span class="num">02</span><h3>Снятие наличных</h3><p>Выбрать счёт, указать сумму и увидеть комиссию до создания QR-кода.</p></div><div class="mini q"><small>Пример: дебетовый счёт</small><b>$500</b><small>Без комиссии</small></div></li>
+      <li><div class="step-copy"><span class="num">03</span><h3>Подтвердить снятие в банкомате</h3><p>Показать QR сканеру, открыть уведомление и ввести четыре цифры на банкомате.</p></div><div class="mini pin"><small>Код из уведомления</small><span class="pin-digits" aria-label="Четыре цифры"><i></i><i></i><i></i><i></i></span><small>Подтверждение снятия</small></div></li>
     </ol>
   </section>
   <section id="decisions" class="section split">
-    <div><p class="eyebrow">03 / Решения</p><h2>Что важно в пути</h2></div>
+    <div><p class="eyebrow">03 / Решения</p><h2>Что важно</h2></div>
     <div class="decisions">
-      <details open><summary>Комиссия видна до получения QR</summary><p>Условия зависят от счёта. Комиссия появляется рядом с суммой, пока ещё можно сменить счёт.</p></details>
-      <details><summary>К QR можно вернуться с главной</summary><p>Пользователь может подготовить снятие заранее. На главной видна активная заявка, а на экране QR — срок её действия и возможность отмены.</p></details>
-      <details><summary>Подсказка доступна у банкомата</summary><p>На экране QR есть короткая инструкция: что выбрать на банкомате, куда поднести телефон и где найти код подтверждения.</p></details>
+      <details open><summary>Комиссия видна до создания QR</summary><p>Условия комиссии зависят от выбранного счёта.</p></details>
+      <details><summary>К QR можно вернуться с главной</summary><p>Пользователь может подготовить снятие наличных заранее в приложении. На главной видна активная заявка, а на экране QR — срок действия и возможность отмены.</p></details>
+      <details><summary>Как снять наличные</summary><p>На экране QR есть короткая инструкция: что выбрать на банкомате, куда поднести телефон и где найти код подтверждения.</p></details>
     </div>
   </section>
   <section id="demo" class="section demo split">
-    <div><p class="eyebrow">04 / Демо</p><h2>Попробуйте сценарий</h2></div>
-    <div><p class="intro">Начните с раздела «Банкоматы». Когда появится QR, нажмите «Демо: отсканировать QR в банкомате», чтобы пройти подтверждение. Операция имитируется.</p><a class="button" href="../">Открыть прототип <span aria-hidden="true">↗</span></a></div>
+    <div><p class="eyebrow">04 / Демо</p><h2>Прототип</h2></div>
+    <div>
+      <p class="intro">Начните с раздела «Банкоматы». Когда появится QR, нажмите «Демо: отсканировать QR в банкомате», чтобы подтвердить снятие. Операция имитируется.</p>
+      <div class="demo-actions">
+        <a class="button" href="../">Открыть прототип <span aria-hidden="true">↗</span></a>
+        <a class="button figma-button" href="https://www.figma.com/design/Jkb4I2dNf7WPJ2Bi2VngvO/Yasinskaya-A.-Payments.-Test-Task?node-id=2008-1164&amp;t=B11ItOiT3XI7sgJk-1" target="_blank" rel="noopener noreferrer">Открыть Figma <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
   </section>
 </main>
 <footer class="foot wrap"><span>Plata · Концепт для тестового задания</span><a href="#top">Наверх ↑</a></footer>
