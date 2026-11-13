@@ -7,6 +7,11 @@ const root = fileURLToPath(new URL('.', import.meta.url))
 
 export default defineConfig({
   plugins: [react()],
+  build: {
+    rollupOptions: {
+      input: [path.join(root, 'index.html'), path.join(root, 'atm.html')],
+    },
+  },
   resolve: {
     alias: {
       '@tokens': path.resolve(root, 'tokens'),

@@ -21,13 +21,18 @@ updated: 2026-11-12
 
 @media (prefers-reduced-motion: no-preference) {
   .flow-qr-image[data-reveal] :is(.qr-dot, .qr-finder) {
-    animation: withdrawal-qr-pulse 760ms ease-in-out var(--qr-delay) both;
+    animation: withdrawal-qr-reveal 760ms ease-out var(--qr-delay) both;
+  }
+
+  .flow-qr-image[data-reveal] :is(.qr-dot, .qr-finder rect:not([fill='none'])) {
+    fill: currentColor;
   }
 }
 
-@keyframes withdrawal-qr-pulse {
-  0%, 100% { color: var(--ink); }
-  30%, 55% { color: var(--accent); }
+@keyframes withdrawal-qr-reveal {
+  0% { opacity: 0; color: var(--accent); }
+  40% { opacity: 1; color: var(--accent); }
+  100% { opacity: 1; color: var(--ink); }
 }
 
 .withdrawal-flow {
@@ -89,7 +94,8 @@ updated: 2026-11-12
 .flow-filters > button[aria-pressed="true"] { border-color: transparent; color: var(--atm-filter-accent); box-shadow: inset 0 0 0 1.5px var(--atm-filter-accent); }
 .flow-map-screen[data-expanded] .flow-map-sheet-header { padding-top: 29px; border-radius: 48px 48px 0 0; }
 .flow-map-screen[data-expanded] .flow-map-sheet h2 { margin-bottom: 26px; }
-.flow-map-screen[data-expanded] .flow-map-sheet-header::before { content: ""; position: absolute; top: 5px; left: 50%; translate: -50% 0; width: 36px; height: 5px; border-radius: 99px; background: #c6c6c6; }
+.flow-map-grabber { position: absolute; top: 0; left: 50%; translate: -50% 0; width: 64px; height: 20px; padding: 0; display: grid; justify-items: center; align-items: start; background: transparent; }
+.flow-map-grabber::before { content: ""; width: 36px; height: 5px; margin-top: 5px; border-radius: 99px; background: #c6c6c6; }
 .flow-map-sheet-close { position: absolute; top: 16px; right: var(--inset); }
 .flow-map-screen[data-expanded] > .flow-map { z-index: 2; clip-path: inset(0 0 calc(100% - var(--expanded-map-peek))); pointer-events: none; }
 .flow-map-screen .flow-filters button { background: var(--surface); }
@@ -149,6 +155,7 @@ updated: 2026-11-12
 .flow-amount-field:focus-within { outline: 2px solid var(--flow-blue); }
 .flow-amount-field input::placeholder { color: var(--muted); opacity: .58; }
 .flow-amount-field small { flex: none; color: var(--flow-blue); font-size: 13px; }
+.flow-amount-max { flex: none; padding: 4px 0; background: transparent; color: var(--flow-blue); font-size: 13px; }
 .flow-fee, .flow-amount-field .flow-fee { color: var(--flow-error); }
 .flow-amount-field .flow-no-fee { color: var(--ink); }
 .flow-generate { margin-top: auto; }
@@ -178,10 +185,47 @@ updated: 2026-11-12
 .flow-map-link { background: var(--paper); text-align: left; }
 .flow-map-link img:first-child { width: 36px; height: 36px; object-fit: contain; }
 .flow-map-link img:last-child { margin-left: auto; width: 16px; height: 16px; }
-.flow-warning { background: #f9e5e7; }
-.flow-warning img { width: 22px; }
+.flow-warning { min-height: 52px; padding: 14px 12px 14px 16px; border-radius: 12px; background: #fcefcf; font-size: 15px; line-height: 18px; }
+.flow-warning > span { display: grid; place-items: center; flex: 0 0 24px; height: 24px; }
+.flow-warning img { width: 20px; height: 20px; }
 .flow-qr-actions { margin-top: 18px; display: grid; gap: 8px; }
 .flow-demo { min-height: 40px; color: var(--flow-blue); background: transparent; font-size: 13px; }
+.flow-demo-anchor { position: relative; }
+.flow-demo-hint {
+  --hint-glass: rgb(255 255 255 / 90%);
+  position: absolute;
+  z-index: 1;
+  bottom: calc(100% + 9px);
+  left: 50%;
+  translate: -50% 0;
+  display: grid;
+  place-items: center;
+  width: 166px;
+  min-height: 62px;
+  border-radius: 38px;
+  background: var(--hint-glass);
+  backdrop-filter: blur(20px);
+  filter: drop-shadow(0 10px 50px rgb(0 0 0 / 30%));
+  font-size: 17px;
+  font-weight: 600;
+  pointer-events: none;
+}
+.flow-demo-hint::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  right: 44px;
+  width: 56px;
+  height: 13px;
+  background: var(--hint-glass);
+  mask: url('/figma/demo-push-pointer.svg') center / contain no-repeat;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .flow-demo-hint { animation: flow-demo-hint-exit 300ms ease 2s both; }
+}
+@keyframes flow-demo-hint-exit {
+  to { opacity: 0; transform: translateY(-4px); }
+}
 .flow-overlay { border: 0; color: var(--ink); background: var(--paper); border-radius: 32px; width: min(360px, calc(100% - 24px)); max-height: calc(100dvh - 28px); padding: 22px; box-shadow: var(--flow-shadow); }
 .flow-overlay::backdrop { background: var(--scrim); }
 .flow-overlay h2 { margin-bottom: 12px; }
@@ -204,9 +248,13 @@ updated: 2026-11-12
 .flow-help-layer { position: absolute; inset: 0; z-index: 1; display: flex; align-items: flex-end; background: var(--scrim); }
 .flow-help-sheet { width: 100%; max-height: 100%; overflow: auto; background: var(--paper); border-radius: 48px 48px 0 0; padding: 30px 20px 50px; }
 .flow-help-sheet h2 { text-align: center; }
-.flow-help-sheet ol { counter-reset: help-step; list-style: none; display: grid; gap: 12px; margin: 24px 0; padding: 0; }
-.flow-help-sheet li { counter-increment: help-step; display: grid; grid-template-columns: 28px 1fr; align-items: center; gap: 12px; line-height: 18px; }
-.flow-help-sheet li::before { content: counter(help-step); display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid currentColor; border-radius: 50%; font-size: 13px; }
+.flow-instructions { padding-top: 20px; }
+.flow-instructions h2 { display: grid; place-items: center; min-height: 44px; }
+.flow-instructions ol { counter-reset: help-step; list-style: none; display: grid; gap: 12px; margin: 16px 0 24px; padding: 0; }
+.flow-instructions li { counter-increment: help-step; display: grid; grid-template-columns: 28px minmax(0, 1fr); align-items: start; gap: 12px; line-height: 18px; }
+.flow-instructions li:nth-child(2) { align-items: center; }
+.flow-instructions li::before { content: counter(help-step); display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid #000; border-radius: 50%; font-size: 13px; font-weight: 590; }
+.flow-instructions .flow-primary { border-radius: 16px; font-size: 17px; }
 .flow-notification {
   margin: calc((100dvh / var(--device-scale) - var(--device-height)) / 2 + 72px) auto auto;
   width: 362px;

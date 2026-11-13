@@ -92,7 +92,7 @@ export function AtmMap<T extends Pin>({ pins, location, route, onSelect, onLocat
             style={{ scale: (Math.abs(x) % 2 ? -1 : 1) + ' ' + (Math.abs(y) % 2 ? -1 : 1) }}
             src={import.meta.env.BASE_URL + 'figma/atm-street.png'} alt="" draggable={false} />))}
         </div>
-        {location && <span className="flow-you" role="img" aria-label="Моё местоположение" />}
+        {location && <span className="flow-you" role="img" aria-label="My location" />}
         {route && <span className="flow-route-line" style={{
           '--route-x': route.x + '%', '--route-y': route.y + '%',
           '--route-width': Math.abs(origin.x - route.x) + '%', '--route-height': Math.abs(origin.y - route.y) + '%',
@@ -107,16 +107,16 @@ export function AtmMap<T extends Pin>({ pins, location, route, onSelect, onLocat
           const x = group.reduce((sum, item) => sum + item.x, 0) / group.length
           const y = group.reduce((sum, item) => sum + item.y, 0) / group.length
           return <button className="flow-pin flow-cluster" type="button" key={group.map(item => item.name).join(':')}
-            style={{ left: x + '%', top: y + '%' }} aria-label={'Банкоматы: ' + group.length + '. Приблизить'}
+            style={{ left: x + '%', top: y + '%' }} aria-label={'ATMs: ' + group.length + '. Zoom in'}
             onClick={() => zoomBy(.45)}>{group.length}</button>
         })}
       </div>
     </div>
-    <div className="flow-map-back"><button className="flow-icon" type="button" aria-label="Назад" onClick={onBack}><Icon file="flow-back.svg" /></button></div>
+    <div className="flow-map-back"><button className="flow-icon" type="button" aria-label="Back" onClick={onBack}><Icon file="flow-back.svg" /></button></div>
     <div className="flow-map-controls">
-      <button className="flow-icon" type="button" aria-label="Приблизить" onClick={() => zoomBy(.25)}><Icon file="map-plus.svg" /></button>
-      <button className="flow-icon" type="button" aria-label="Отдалить" onClick={() => zoomBy(-.25)}><Icon file="map-minus.svg" /></button>
-      <button className="flow-icon" type="button" aria-label="Моё местоположение" onClick={() => {
+      <button className="flow-icon" type="button" aria-label="Zoom in" onClick={() => zoomBy(.25)}><Icon file="map-plus.svg" /></button>
+      <button className="flow-icon" type="button" aria-label="Zoom out" onClick={() => zoomBy(-.25)}><Icon file="map-minus.svg" /></button>
+      <button className="flow-icon" type="button" aria-label="My location" onClick={() => {
         if (location) setCamera(initialCamera)
         else onLocate()
       }}><Icon file="map-location.svg" /></button>

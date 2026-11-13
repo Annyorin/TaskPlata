@@ -14,7 +14,7 @@ function StatusBar() {
 
 function CardThumb({ credit = false, stack = false }: { credit?: boolean; stack?: boolean }) {
   return <span className={stack ? 'card-thumbs card-thumbs-stack' : 'card-thumbs'} role="img"
-    aria-label={stack ? 'Три кредитные карты Mastercard' : credit ? 'Кредитная карта Mastercard' : 'Дебетовая карта Mastercard'}>
+    aria-label={stack ? 'Three Mastercard credit cards' : credit ? 'Mastercard credit card' : 'Mastercard debit card'}>
     {stack && [1, 2].map(index => <span className="card-thumb card-thumb-skin" key={index}><Art file="credit-card-skin.png" /></span>)}
     <span className={credit ? 'card-thumb card-thumb-credit' : 'card-thumb card-thumb-debit'}>
       <Art className="card-thumb-background" file={credit ? '0-Image541.png' : '0-DebitoBgPhysical1.png'} />
@@ -27,36 +27,36 @@ function Home({ withdrawal, onAtms, onQr }: { withdrawal: Withdrawal | null; onA
   return <main className="content home" aria-label={withdrawal ? 'Home-End' : 'Home-Start'}>
     <header className="profile">
       <Art className="avatar" file="0-BaseViewCornerRadiusControl.png" />
-      <div><strong>Santiago <Art file="0-LogoPlus.svg" /></strong><p>1 месяц с Плата</p></div>
+      <div><strong>Santiago <Art file="0-LogoPlus.svg" /></strong><p>1 month with Plata</p></div>
       <span className="round profile-arrow"><Art file="0-IcStrokedChevronDown.svg" /></span>
     </header>
     <div className="home-grid">
-      <section className="glass"><p>Кэшбек</p><h2 className="cashback">$467.18</h2><div className="perks">
+      <section className="glass"><p>Cashback</p><h2 className="cashback">$467.18</h2><div className="perks">
         {['Percent', 'Child', 'Supermarkets', 'SportGoods'].map(icon => <Art key={icon} file={`0-IcStroked${icon}.svg`} />)}
       </div></section>
-      <section className="glass"><p>Рассрочка</p><h2>12</h2><p className="muted perks">109 партнёры</p></section>
+      <section className="glass"><p>MSI to defer</p><h2>12</h2><p className="muted perks">109 partners</p></section>
     </div>
-    <section className="glass summary"><div><h2>Переводы</h2><p>$14,157 потрачено в Окт</p></div><span className="transfer-orb"><Art file="0-Gradients1.svg" /><Art className="orb-highlight" file="0-Highlight.svg" /></span></section>
+    <section className="glass summary"><div><h2>Transactions</h2><p>$14,157 spent in Oct</p></div><span className="transfer-orb"><Art file="0-Gradients1.svg" /><Art className="orb-highlight" file="0-Highlight.svg" /></span></section>
     {withdrawal && <button type="button" className="panel summary cash-qr" onClick={onQr}>
       <Art className="cash-qr-art" file="cash-qr.png" />
       <div className="cash-qr-copy">
-        <h2>QR-код для наличных</h2>
-        <p>До {expires(withdrawal.expiresAt)}</p>
+        <h2>Cash withdrawal QR</h2>
+        <p>Until {expires(withdrawal.expiresAt)}</p>
       </div>
       <div className="cash-qr-meta">
         <span>{money(withdrawal.amount)}</span>
         <CardThumb credit={withdrawal.fee > 0} />
       </div>
     </button>}
-    <section className="panel summary"><div><h2>$5,289.39</h2><p>Доступно на кредитке</p></div><div className="card-meta"><small>Pay by Nov 4</small><CardThumb credit stack /></div></section>
-    <section className="panel summary"><div><h2>$15,104.57</h2><p>Дебетовая карта</p></div><div className="card-meta earned"><small>$23.78 заработано</small><CardThumb /></div></section>
+    <section className="panel summary"><div><h2>$5,289.39</h2><p>Available credit</p></div><div className="card-meta"><small>Pay by Nov 4</small><CardThumb credit stack /></div></section>
+    <section className="panel summary"><div><h2>$15,104.57</h2><p>Debit card</p></div><div className="card-meta earned"><small>$23.78 earned</small><CardThumb /></div></section>
     <section className="invite summary"><div><h2>Get $300</h2><p>Invite a friend · <span>2 days left</span></p></div><Art file="0-Image.png" /></section>
     <button type="button" className="panel atm-card" onClick={onAtms}>
       <div>
-        <h2>Банкоматы</h2>
-        <p>Снятие и пополнение наличных</p>
+        <h2>ATMs</h2>
+        <p>Cash withdrawals and deposits</p>
       </div>
-      <div className="atm-map"><Art file="atm-map.png" /></div>
+      <div className="atm-map"><Art file="atm-street.png" /><span className="atm-preview-pin" aria-hidden="true" /></div>
     </button>
   </main>
 }
@@ -83,21 +83,21 @@ function PaymentGroup({ title, children, wide }: { title: string; children: Reac
 
 function Payments({ onTopUp }: { onTopUp: (button: HTMLButtonElement) => void }) {
   return <main className="content payments">
-    <header className="payments-heading"><h1>Платежи</h1><span className="round search"><Art file="1-IcStrokedSearch.svg" /></span></header>
+    <header className="payments-heading"><h1>Payments</h1><span className="round search"><Art file="1-IcStrokedSearch.svg" /></span></header>
     <div className="actions">
-      <button type="button" className="panel" onClick={event => onTopUp(event.currentTarget)}><Art file="1-Ic28ColoredTopup.svg" />Пополнить</button>
-      <div className="panel"><Art file="1-Ic28ColoredSend.svg" />Перевести</div>
+      <button type="button" className="panel" onClick={event => onTopUp(event.currentTarget)}><Art file="1-Ic28ColoredTopup.svg" />Add money</button>
+      <div className="panel"><Art file="1-Ic28ColoredSend.svg" />Send money</div>
     </div>
-    <PaymentGroup title="Переводы">{contacts.map(([label, file]) => <Tile key={label} label={label} file={file} logo />)}</PaymentGroup>
-    <PaymentGroup title="Мои платежи"><Tile label="Televia прпрп" file="1-Image.png" logo /><Tile label="Add" file="2-IcStrokedPlusSmall.svg" /></PaymentGroup>
-    <PaymentGroup title="Оплата счетов" wide>{services.map(([label, icon]) => <Tile key={label} label={label} file={`1-${icon}.svg`} />)}</PaymentGroup>
+    <PaymentGroup title="Transfers">{contacts.map(([label, file]) => <Tile key={label} label={label} file={file} logo />)}</PaymentGroup>
+    <PaymentGroup title="My payments"><Tile label="Televia" file="1-Image.png" logo /><Tile label="Add" file="2-IcStrokedPlusSmall.svg" /></PaymentGroup>
+    <PaymentGroup title="Pay bills" wide>{services.map(([label, icon]) => <Tile key={label} label={label} file={`1-${icon}.svg`} />)}</PaymentGroup>
   </main>
 }
 
 const accounts = [
-  ['Кредитная карта', '$14,905.65', '2-Container2.png'],
-  ['Дебетовая карта', '$9,513.75', '2-Container.png'],
-  ['Накопительный счёт', '$8,483.91', '2-Image.png'],
+  ['Credit card', '$14,905.65', '2-Container2.png'],
+  ['Debit card', '$9,513.75', '2-Container.png'],
+  ['Savings account', '$8,483.91', '2-Image.png'],
 ]
 
 function Sheet({ onClose }: { onClose: () => void }) {
@@ -114,8 +114,8 @@ function Sheet({ onClose }: { onClose: () => void }) {
   return <div className="sheet-layer">
     <div className="scrim" aria-hidden="true" onClick={onClose} />
     <section className="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
-      <button ref={closeRef} className="sheet-dismiss" type="button" onClick={onClose}>Закрыть</button>
-      <h2 id="sheet-title">Выбрать счёт</h2>
+      <button ref={closeRef} className="sheet-dismiss" type="button" onClick={onClose}>Close</button>
+      <h2 id="sheet-title">Select account</h2>
       <ul className="panel accounts">
         {accounts.map(([title, balance, file]) => <li key={title}>
           <span className="account-art"><Art file={file} />{file === '2-Container2.png' && <Art className="account-overlay" file="2-Container3.svg" />}</span>
@@ -129,7 +129,7 @@ function Sheet({ onClose }: { onClose: () => void }) {
 type Screen = 'home' | 'pay'
 
 function TabBar({ screen, onNavigate }: { screen: Screen; onNavigate: (screen: Screen) => void }) {
-  return <nav className="tabbar" aria-label="Основная навигация">
+  return <nav className="tabbar" aria-label="Main navigation">
     <div className="tabs">
       <button type="button" aria-current={screen === 'home' ? 'page' : undefined} onClick={() => onNavigate('home')}><Art file={`${screen === 'home' ? 0 : 1}-HomescreenStroke.svg`} />Home</button>
       <button type="button" aria-current={screen === 'pay' ? 'page' : undefined} onClick={() => onNavigate('pay')}><Art file={`${screen === 'pay' ? 1 : 0}-TransferStroke.svg`} />Pay</button>
